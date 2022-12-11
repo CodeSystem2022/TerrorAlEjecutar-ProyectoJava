@@ -126,8 +126,8 @@ public class Comandas {
                                             if (sharina[0]>0.3 && squeso[0]>0.3) {
                                                 if (opcionPi<=valorp[0]) {
                                                     listacomanda[i+1][2]= pizza[opcionPi]+" X "+cantidadpi;
-                                                    sharina[0] -= 0.3;
-                                                    squeso[0] -=0.3;
+                                                    sharina[0] -= 0.3*cantidadpi;
+                                                    squeso[0] -=0.3*cantidadpi;
                                                     precioTotal += precioP[opcionPi]*cantidadpi;
                                                     System.out.println(precioTotal);
                                                 }
@@ -156,7 +156,7 @@ public class Comandas {
                                                 int cantidadMi = entrada.nextInt();
                                                 if (opcionMi==0) {
                                                     if (smilanesa[0]>1) {
-                                                        smilanesa[0] -= 1;
+                                                        smilanesa[0] -= 1*cantidadMi;
                                                         listacomanda[i+1][3] = minuta[opcionMi]+" X "+cantidadMi;
                                                         precioTotal += precioM[opcionMi]*cantidadMi;
                                                     }
@@ -170,7 +170,7 @@ public class Comandas {
                                                     if (spanl[0]>1) {
 							                        listacomanda[i+1][3] = minuta[opcionMi]+" X "+cantidadMi;
 							                        precioTotal += precioM[opcionMi]*cantidadMi;
-							                        spanl[0] -= 1;
+							                        spanl[0] -= 1*cantidadMi;
                                                     } 
                                                     else {
 							                        System.out.println("  ---------------------------------------------------");
@@ -183,8 +183,8 @@ public class Comandas {
                                                     if (shamburguesa[0]>1 && spanh[0]>1) {
 							                            listacomanda[i+1][3] = minuta[opcionMi]+" X "+cantidadMi;
 							                            precioTotal += precioM[opcionMi]*cantidadMi;
-							                            shamburguesa[0] -= 1;
-							                            spanh[0] -= 1;
+							                            shamburguesa[0] -= 1*cantidadMi;
+							                            spanh[0] -= 1*cantidadMi;
                                                     } 
                                                     else {
 							                            System.out.println("  ---------------------------------------------------");
@@ -207,10 +207,10 @@ public class Comandas {
                                             System.out.println("elija la cantidad de "+bebida[opcionBe]);
                                             int cantidadBe = entrada.nextInt();
                                             if (opcionBe<=valorb[0]) {
-						                        if (sbebida[opcionBe]>1) {
+						if (sbebida[opcionBe]>1) {
 						                        listacomanda[i+1][4] = bebida[opcionBe]+" X "+cantidadBe;
 						                        precioTotal += precioB[opcionBe]*cantidadBe;
-						                        sbebida[opcionBe] = sbebida[opcionBe]-1;
+						                        sbebida[opcionBe] -= 1*cantidadBe;
                                                 } 
                                                 else {
 					                                System.out.println("  ---------------------------------------------------");
